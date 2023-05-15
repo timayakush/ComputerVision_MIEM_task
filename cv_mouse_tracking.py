@@ -14,7 +14,7 @@ while True:
     if f1 and not f2:
         print('\nHand disappeared')
     if result.multi_hand_landmarks:
-        for id, lm in enumerate(result.multi_hand_landmarks[0].landmark):
+        for id_finger, lm in enumerate(result.multi_hand_landmarks[0].landmark):
             h, w, _ = img.shape
             f1 = f2
             f2 = True
@@ -22,9 +22,9 @@ while True:
                 print('Hand appeared')
             cx, cy = int(lm.x * w), int(lm.y * h)
             cv2.circle(img, (cx, cy), 3, (255, 0, 255))
-            if id == 4:
+            if id_finger == 4:
                 cx_2, cy_2 = cx, cy
-            if id == 8:
+            if id_finger == 8:
                 cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
                 cx_1, cy_1 = cx, cy
                 try:
