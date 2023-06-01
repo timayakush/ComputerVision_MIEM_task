@@ -79,4 +79,6 @@ while True:
         f1 = f2
         f2 = False
     cv2.imshow("Hand tracking", img)
-    cv2.waitKey(1)
+    k = cv2.waitKey(1)
+    if k == 27:
+        break
